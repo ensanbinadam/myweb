@@ -133,6 +133,41 @@
             .actions { flex-direction: column; }
             .btn { width: 100%; box-sizing: border-box; }
         }
+
+        /* Categories Section */
+        .category-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: right;
+            margin-bottom: 30px;
+            border-right: 5px solid #2ecc71;
+        }
+        .category-container h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.2em;
+        }
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tag-btn {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            color: #333;
+            font-family: inherit;
+        }
+        .tag-btn:hover { background: #e9ecef; }
+        .tag-btn.active { background: #3498db; color: white; border-color: #3498db; }
     </style>
     <script>
         function copyLink(btn, url) {
@@ -147,15 +182,73 @@
                 }, 2000);
             });
         }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const descs = document.querySelectorAll(".project-desc");
+            const tagsSet = new Set();
+            descs.forEach(desc => {
+                const text = desc.innerText;
+                const matches = text.match(/#[\w\u0600-\u06FF_]+/g);
+                if (matches) {
+                    matches.forEach(tag => tagsSet.add(tag));
+                }
+            });
+
+            if (tagsSet.size > 0) {
+                const nav = document.getElementById("categoryNav");
+                if (nav) nav.style.display = "block";
+                const tagsContainer = document.getElementById("exportCategoryTags");
+                
+                const allBtn = document.createElement("button");
+                allBtn.className = "tag-btn active";
+                allBtn.innerText = "الكل";
+                allBtn.onclick = () => filterExport(null, allBtn);
+                tagsContainer.appendChild(allBtn);
+
+                tagsSet.forEach(tag => {
+                    const btn = document.createElement("button");
+                    btn.className = "tag-btn";
+                    btn.innerText = tag;
+                    btn.onclick = () => filterExport(tag, btn);
+                    tagsContainer.appendChild(btn);
+                });
+            }
+        });
+
+        function filterExport(tag, btn) {
+            const buttons = document.querySelectorAll(".tag-btn");
+            buttons.forEach(b => b.classList.remove("active"));
+            if (btn) btn.classList.add("active");
+
+            const items = document.querySelectorAll("ul li");
+            items.forEach(li => {
+                if (!tag) {
+                    li.style.display = "flex";
+                } else {
+                    const desc = li.querySelector(".project-desc");
+                    if (desc && desc.innerText.includes(tag)) {
+                        li.style.display = "flex";
+                    } else {
+                        li.style.display = "none";
+                    }
+                }
+            });
+        }
     </script>
 </head>
 <body>
     <div class="container">
         <h1>🌐 مشاريع الأستاذ المتقاعد /عبدالعزيز العبدالجبار</h1>
+
+        <div id="categoryNav" class="category-container" style="display: none;">
+            <h3>🏷️ التصنيفات:</h3>
+            <div id="exportCategoryTags" class="category-tags"></div>
+        </div>
+
         <ul>
             <li>
                 <div class="project-number">1</div>
-                <div class="project-desc">محرر الاسئلة التفاعلية  المطور مع احتياج انترنت لتشغيل المكتبات والخطوط الخارجية..</div>
+                <div class="project-desc">محرر #الاسئلة_التفاعلية  المطور مع احتياج انترنت لتشغيل المكتبات والخطوط الخارجية..</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/quiz_editor_pro/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -168,7 +261,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/quiz_editor_pro/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">2</div>
-                <div class="project-desc">محرر اسئلة وأورق عمل تفاعلية بدون مكتبات او خطوط خارجية . يعمل على الحاسب بدون انترنت ..</div>
+                <div class="project-desc">محرر اسئلة وأورق عمل تفاعلية بدون مكتبات او خطوط خارجية . يعمل على الحاسب بدون انترنت #الاسئلة_التفاعلية..</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/quiz_editor_pro_offline/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -181,7 +274,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/quiz_editor_pro_offline/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">3</div>
-                <div class="project-desc">أداة لتحليل مبادرة ارتقاء ـ مجانية</div>
+                <div class="project-desc">أداة #تحليل مبادرة ارتقاء ـ مجانية</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/analysis_irtiqa/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -194,7 +287,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/analysis_irtiqa/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">4</div>
-                <div class="project-desc">أداة تحليل البيانات التعليمية من ملفات اكسل مصدرة من نور</div>
+                <div class="project-desc">أداة #تحليل البيانات التعليمية من ملفات اكسل مصدرة من نور</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/analysis_tool/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -207,7 +300,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/analysis_tool/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">5</div>
-                <div class="project-desc">نظام تحليل النتائج الوصفي لمادة وحيدة</div>
+                <div class="project-desc">نظام #تحليل النتائج الوصفي لمادة وحيدة</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/analysis_one/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -220,7 +313,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/analysis_one/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">6</div>
-                <div class="project-desc"># 📊 نظام تحليل نتائج الاختبارات المتعددة لمادة وحيدة|single_subj_multi_test</div>
+                <div class="project-desc"># 📊 نظام #تحليل نتائج الاختبارات المتعددة لمادة وحيدة|single_subj_multi_test</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/single_subj_multi_test/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -233,7 +326,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/single_subj_multi_test/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">7</div>
-                <div class="project-desc">السيرة الذاتية المطور</div>
+                <div class="project-desc">السيرة_الذاتية المطور#</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/resumepro/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -246,7 +339,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/resumepro/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">8</div>
-                <div class="project-desc">توزيع موضوعات المادة الدراسية يدويا</div>
+                <div class="project-desc">توزيع_منهج موضوعات المادة الدراسية يدويا#</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/topics_plan/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -259,7 +352,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/topics_plan/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">9</div>
-                <div class="project-desc">كود للمساعدة للكتابة بالعربي في  Affinity_Arabic_Text</div>
+                <div class="project-desc">كود للمساعدة للـ #كتابة_بالعربي في  Affinity_Arabic_Text</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/affinity_arabic_text/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -272,7 +365,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/affinity_arabic_text/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">10</div>
-                <div class="project-desc">لعبة مطابقة المصطلحات والتعريفات الرياضياتيةوالهندسية</div>
+                <div class="project-desc">لعبة مطابقة المصطلحات والتعريفات الرياضياتيةوالهندسية#وسيلة_تفاعلية</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/geometry_vocabulary/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -285,7 +378,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/geometry_vocabulary/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">11</div>
-                <div class="project-desc">محرر مساعد لملف الانجاز المهني|Professional Portfolio Builder</div>
+                <div class="project-desc">محرر مساعد لـ #ملف_الانجاز المهني|Professional Portfolio Builder</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/portfolio_editor/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -298,7 +391,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/portfolio_editor/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">12</div>
-                <div class="project-desc">نموذج لمحرر ملف الانجاز للمعلم والمعلمة</div>
+                <div class="project-desc">نموذج لمحرر #ملف_الانجاز للمعلم والمعلمة</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/enjaz/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -311,7 +404,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/enjaz/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">13</div>
-                <div class="project-desc">مراجعة جداول القسمة من جدول 1 حتى جدول 10</div>
+                <div class="project-desc">مراجعة جداول القسمة من جدول 1 حتى جدول 10#وسيلة_تفاعلية</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/alqisma/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -324,7 +417,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/alqisma/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">14</div>
-                <div class="project-desc">مراجعة الحروف العربية من خلال اختيار الحرف الصحيح من أول احرف من اسم الصورة</div>
+                <div class="project-desc">مراجعة الحروف العربية من خلال اختيار الحرف الصحيح من أول احرف من اسم الصورة#وسيلة_تفاعلية</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/huruf_arabia/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -337,7 +430,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/huruf_arabia/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">15</div>
-                <div class="project-desc">مراجعة الحروف الانجليزية المجردة من خلال اول حرف من اسم الصورة</div>
+                <div class="project-desc">مراجعة الحروف الانجليزية المجردة من خلال اول حرف من اسم الصورة#وسيلة_تفاعلية</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/En_Alphabet/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -350,7 +443,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/En_Alphabet/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">16</div>
-                <div class="project-desc">مراجعة الجمع البسيط</div>
+                <div class="project-desc">مراجعة الجمع البسيط#وسيلة_تفاعلية</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/aljame/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -363,7 +456,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/aljame/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">17</div>
-                <div class="project-desc">مراجعة الطرح البسيط للصغار</div>
+                <div class="project-desc">مراجعة الطرح البسيط للصغار#وسيلة_تفاعلية</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/altarh/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -376,7 +469,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/altarh/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">18</div>
-                <div class="project-desc">العبارات الجبرية والمعادلات للصف الخامس</div>
+                <div class="project-desc">العبارات الجبرية والمعادلات للصف الخامس#وسيلة_تفاعلية</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/Algebra/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -389,7 +482,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/Algebra/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">19</div>
-                <div class="project-desc">تدريب على الكسور المكافئة</div>
+                <div class="project-desc">تدريب على الكسور المكافئة#وسيلة_تفاعلية</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/alkasr_almukafi/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -402,7 +495,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/alkasr_almukafi/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">20</div>
-                <div class="project-desc">مراجعة القسمة مع التغذية الراجعة</div>
+                <div class="project-desc">مراجعة القسمة مع التغذية الراجعة#وسيلة_تفاعلية</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/alqisma_rajiea/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -415,7 +508,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/alqisma_rajiea/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">21</div>
-                <div class="project-desc">مراجعة الضرب مع التغذية الراجعة</div>
+                <div class="project-desc">مراجعة الضرب مع التغذية الراجعة#وسيلة_تفاعلية</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/aldarb_rajiea/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -428,7 +521,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/aldarb_rajiea/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">22</div>
-                <div class="project-desc">تعزيز تعلم الكسور المكافئة</div>
+                <div class="project-desc">تعزيز تعلم الكسور المكافئة#وسيلة_تفاعلية</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/kusur_mukafia/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -441,7 +534,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/kusur_mukafia/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">23</div>
-                <div class="project-desc">ـ لعبة جدول الضرب</div>
+                <div class="project-desc">#وسيلة_تفاعلية لعبة جدول الضرب</div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/jadwalaldarb/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -454,7 +547,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/jadwalaldarb/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">24</div>
-                <div class="project-desc">مراجعة الأرقام للصغار</div>
+                <div class="project-desc">مراجعة الأرقام للصغار#وسيلة_تفاعلية </div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/alarqam/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -467,7 +560,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/alarqam/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">25</div>
-                <div class="project-desc">تحدي القسمة</div>
+                <div class="project-desc">تحدي القسمة#وسيلة_تفاعلية </div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/-tahadiy_alqisma/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -480,7 +573,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/-tahadiy_alqisma/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">26</div>
-                <div class="project-desc">مسابقة جداول الضرب من جدول 1 حتى جدول 10</div>
+                <div class="project-desc">مسابقة جداول الضرب من جدول 1 حتى جدول 10#وسيلة_تفاعلية </div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/luebat_aldarb/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -493,7 +586,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/luebat_aldarb/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">27</div>
-                <div class="project-desc">لعبة لمراجعة  جداول القسمة 1-10</div>
+                <div class="project-desc">لعبة لمراجعة  جداول القسمة 1-10#وسيلة_تفاعلية </div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/luebat_alqisma/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -506,7 +599,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/luebat_alqisma/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">28</div>
-                <div class="project-desc">تحدي الضرب لمراجعة جداولها العشرة</div>
+                <div class="project-desc">تحدي الضرب لمراجعة جداولها العشرة#وسيلة_تفاعلية </div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/tahadiy_aldarb/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -519,7 +612,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/tahadiy_aldarb/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">29</div>
-                <div class="project-desc">تدريبات على مقارنة الأعداد</div>
+                <div class="project-desc">تدريبات على مقارنة الأعداد#وسيلة_تفاعلية </div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/muqaranat-alaadad/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
@@ -532,7 +625,7 @@
                 </div><iframe src='https://ensanbinadam.github.io/muqaranat-alaadad/' loading='lazy'></iframe></li>
             <li>
                 <div class="project-number">30</div>
-                <div class="project-desc">تدريب على الكسور المكافئة</div>
+                <div class="project-desc">تدريب على الكسور المكافئة#وسيلة_تفاعلية </div>
                 <div class="actions">
                     <a href="https://ensanbinadam.github.io/alkasr_almukafi_2/" target="_blank" class="btn btn-open">
                         <span>افتح الموقع في إطار جديد</span>
