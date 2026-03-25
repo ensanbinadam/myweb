@@ -1,546 +1,1482 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>مشاريع المعلم المتقاعد/عبدالعزيز العبدالجبار</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
-        body { font-family: 'Tajawal', sans-serif; background: #f8fafc; color: #1e293b; margin: 0; padding: 40px 20px; text-align: center; }
-        .container { max-width: 900px; margin: 0 auto; }
-        
-        .header-box { margin-bottom: 40px; }
-        .site-logo { max-width: 180px; max-height: 180px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        h1 { color: #2563eb; font-size: 2.5em; margin-bottom: 10px; }
-        
-        .category-nav { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 30px; border-right: 5px solid #10b981; text-align: right; display: none; }
-        .tags-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
-        .tag-btn { background: #f1f5f9; border: 1px solid #cbd5e1; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-family: inherit; font-weight: bold; color: #475569; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
-        .tag-btn:hover { background: #e2e8f0; }
-        .tag-btn.active { background: #2563eb; color: white; border-color: #2563eb; }
-        .tag-count { background: rgba(0,0,0,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.85em; }
-        .tag-btn.active .tag-count { background: rgba(255,255,255,0.2); }
+      @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap");
+      body {
+        font-family: "Tajawal", sans-serif;
+        background: #f8fafc;
+        color: #1e293b;
+        margin: 0;
+        padding: 40px 20px;
+        text-align: center;
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
 
-        .projects-list { display: flex; flex-direction: column; gap: 25px; }
-        .project-card { position: relative; background: white; border-radius: 15px; padding: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: right; border-right: 6px solid #2563eb; transition: transform 0.3s; }
-        .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        
-        .project-number { position: absolute; top: -15px; right: -15px; background: #2563eb; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; box-shadow: 0 4px 10px rgba(37,99,235,0.3); font-size: 1.2em; z-index: 10; border: 3px solid white; }
-        
-        .project-desc { font-size: 1.2em; line-height: 1.6; color: #334155; margin-bottom: 20px; white-space: pre-wrap; margin-top: 10px; }
-        
-        .actions { display: flex; gap: 10px; flex-wrap: wrap; border-top: 1px solid #f1f5f9; padding-top: 20px; }
-        .btn { text-decoration: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; color: white; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: none; font-family: inherit; font-size: 15px; }
-        .btn-open { background: #2563eb; }
-        .btn-copy { background: #64748b; }
-        
-        iframe { width: 100%; height: 450px; border-radius: 12px; border: 1px solid #e2e8f0; margin-top: 20px; background: #f8fafc; }
-        
-        footer { margin-top: 60px; padding: 30px; background: #1e293b; color: white; border-radius: 20px 20px 0 0; }
-        footer a { color: #38bdf8; text-decoration: none; font-weight: bold; }
+      .header-box {
+        margin-bottom: 40px;
+      }
+      .site-logo {
+        max-width: 180px;
+        max-height: 180px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+      h1 {
+        color: #2563eb;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      .category-nav {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+        border-right: 5px solid #10b981;
+        text-align: right;
+        display: none;
+      }
+      .tags-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      .tag-btn {
+        background: #f1f5f9;
+        border: 1px solid #cbd5e1;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-family: inherit;
+        font-weight: bold;
+        color: #475569;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .tag-btn:hover {
+        background: #e2e8f0;
+      }
+      .tag-btn.active {
+        background: #2563eb;
+        color: white;
+        border-color: #2563eb;
+      }
+      .tag-count {
+        background: rgba(0, 0, 0, 0.1);
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 0.85em;
+      }
+      .tag-btn.active .tag-count {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .projects-list {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+      .project-card {
+        position: relative;
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        text-align: right;
+        border-right: 6px solid #2563eb;
+        transition: transform 0.3s;
+      }
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-number {
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        background: #2563eb;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        font-size: 1.2em;
+        z-index: 10;
+        border: 3px solid white;
+      }
+
+      .project-desc {
+        font-size: 1.2em;
+        line-height: 1.6;
+        color: #334155;
+        margin-bottom: 20px;
+        white-space: pre-wrap;
+        margin-top: 10px;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        border-top: 1px solid #f1f5f9;
+        padding-top: 20px;
+      }
+      .btn {
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-weight: bold;
+        color: white;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        border: none;
+        font-family: inherit;
+        font-size: 15px;
+      }
+      .btn-open {
+        background: #2563eb;
+      }
+      .btn-copy {
+        background: #64748b;
+      }
+
+      iframe {
+        width: 100%;
+        height: 450px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        margin-top: 20px;
+        background: #f8fafc;
+      }
+
+      footer {
+        margin-top: 60px;
+        padding: 30px;
+        background: #1e293b;
+        color: white;
+        border-radius: 20px 20px 0 0;
+      }
+      footer a {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: bold;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="header-box">
-            
-            <h1>مشاريع المعلم المتقاعد/عبدالعزيز العبدالجبار</h1>
-        </div>
-        
-        <div id="categoryNav" class="category-nav">
-            <h3 style="margin:0; color:#0f172a;">🏷️ تصنيفات المشاريع:</h3>
-            <div id="exportTags" class="tags-container"></div>
+      <div class="header-box">
+        <h1>مشاريع المعلم المتقاعد/عبدالعزيز العبدالجبار</h1>
+      </div>
+
+      <div id="categoryNav" class="category-nav">
+        <h3 style="margin: 0; color: #0f172a">🏷️ تصنيفات المشاريع:</h3>
+        <div id="exportTags" class="tags-container"></div>
+      </div>
+
+      <div class="projects-list" id="projectsContainer">
+        <div
+          class="project-card"
+          data-desc="أداة ويب احترافية ومتقدمة صُممت خصيصاً لهندسة الأوامر (Prompt Engineering) الموجهة لنماذج توليد الصور بالذكاء الاصطناعي (مثل Midjourney و DALL-E 3 وغيرها). تهدف الأداة إلى مساعدة المصممين والفنانين في استخراج **مخطوطات عربية جرافيكية أصيلة ومستقلة**، بعيداً عن القوالب الجاهزة أو الزخارف العشوائية التي تفرضها نماذج الذكاء الاصطناعي عادةً.
+#برومبت"
+        >
+          <div class="project-number">1</div>
+          <div class="project-desc">
+            أداة ويب احترافية ومتقدمة صُممت خصيصاً لهندسة الأوامر (Prompt
+            Engineering) الموجهة لنماذج توليد الصور بالذكاء الاصطناعي (مثل
+            Midjourney و DALL-E 3 وغيرها). تهدف الأداة إلى مساعدة المصممين
+            والفنانين في استخراج **مخطوطات عربية جرافيكية أصيلة ومستقلة**،
+            بعيداً عن القوالب الجاهزة أو الزخارف العشوائية التي تفرضها نماذج
+            الذكاء الاصطناعي عادةً. #برومبت
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/Takween/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="copyUrl(this, 'https://ensanbinadam.github.io/Takween/')"
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/Takween/"
+            loading="lazy"
+          ></iframe>
         </div>
 
-        <div class="projects-list" id="projectsContainer">
-            
-                <div class="project-card" data-desc="مولّد #برومبت الخط العربي للأسماء والعبارات  واجهة عربية تفاعلية لتوليد برومبتات احترافية لتصميم مخطوطات عربية جميلة ">
-                    <div class="project-number">1</div>
-                    <div class="project-desc">مولّد #برومبت الخط العربي للأسماء والعبارات  واجهة عربية تفاعلية لتوليد برومبتات احترافية لتصميم مخطوطات عربية جميلة </div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/arabic_calligraphy_promptg_generator/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/arabic_calligraphy_promptg_generator/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/arabic_calligraphy_promptg_generator/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="أداة ويب عربية لتوليد #برومبت تهنئة فاخرة لمولدات الصور، مع دعم العبارات الرئيسية، التذييل، الاسم، والدولة المختارة، مع هوية بصرية مناسبة تلقائيًا.">
-                    <div class="project-number">2</div>
-                    <div class="project-desc">أداة ويب عربية لتوليد #برومبت تهنئة فاخرة لمولدات الصور، مع دعم العبارات الرئيسية، التذييل، الاسم، والدولة المختارة، مع هوية بصرية مناسبة تلقائيًا.</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/arabic_prompt_gen/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/arabic_prompt_gen/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/arabic_prompt_gen/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="اكتب العبارة الرئيسية والاسم، ثم اختر الخامة والتأثير والزهرة والخلفية، وسيولّد لك الموقع #برومبت عربيًا جاهزًا مع negative prompt منفصل لنسخه مباشرة إلى نانو بانانا أو أي مولد صور يدعم العربية جيدًا.">
-                    <div class="project-number">3</div>
-                    <div class="project-desc">اكتب العبارة الرئيسية والاسم، ثم اختر الخامة والتأثير والزهرة والخلفية، وسيولّد لك الموقع #برومبت عربيًا جاهزًا مع negative prompt منفصل لنسخه مباشرة إلى نانو بانانا أو أي مولد صور يدعم العربية جيدًا.</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/arabic_calligraphy_prompt_generator/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/arabic_calligraphy_prompt_generator/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/arabic_calligraphy_prompt_generator/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="مولد #برومبت بطاقة معايدة">
-                    <div class="project-number">4</div>
-                    <div class="project-desc">مولد #برومبت بطاقة معايدة</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/eid_prompt_generator/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/eid_prompt_generator/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/eid_prompt_generator/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="#تحويل_النص_إلى_صوت">
-                    <div class="project-number">5</div>
-                    <div class="project-desc">#تحويل_النص_إلى_صوت</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/arabi/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/arabi/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/arabi/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="#محرر_الاسئلة_التفاعلية  المطور
-مكتباته خارجية.">
-                    <div class="project-number">6</div>
-                    <div class="project-desc">#محرر_الاسئلة_التفاعلية  المطور
-مكتباته خارجية.</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/quiz_editor_pro/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/quiz_editor_pro/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/quiz_editor_pro/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="#محرر_اسئلة_وأورق_عمل_تفاعلية
-مكتبات مضمنة.">
-                    <div class="project-number">7</div>
-                    <div class="project-desc">#محرر_اسئلة_وأورق_عمل_تفاعلية
-مكتبات مضمنة.</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/quiz_editor_pro_offline/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/quiz_editor_pro_offline/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/quiz_editor_pro_offline/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="كود لـ #عرض_مستوعاتك_في_قيت_هوب ثم تصديريها لموقع رسمي">
-                    <div class="project-number">8</div>
-                    <div class="project-desc">كود لـ #عرض_مستوعاتك_في_قيت_هوب ثم تصديريها لموقع رسمي</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/myweb_editor/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/myweb_editor/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/myweb_editor/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="#أداة_تحليل مبادرة ارتقاء ـ مجانية ">
-                    <div class="project-number">9</div>
-                    <div class="project-desc">#أداة_تحليل مبادرة ارتقاء ـ مجانية </div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/analysis_irtiqa/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/analysis_irtiqa/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/analysis_irtiqa/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="#أداة_تحليل البيانات التعليمية من ملفات اكسل مصدرة من نور">
-                    <div class="project-number">10</div>
-                    <div class="project-desc">#أداة_تحليل البيانات التعليمية من ملفات اكسل مصدرة من نور</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/analysis_tool/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/analysis_tool/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/analysis_tool/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="#أداة_تحليل النتائج الوصفي لمادة وحيدة">
-                    <div class="project-number">11</div>
-                    <div class="project-desc">#أداة_تحليل النتائج الوصفي لمادة وحيدة</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/analysis_one/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/analysis_one/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/analysis_one/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc=" 📊 #أداة_تحليل نتائج الاختبارات المتعددة لمادة وحيدة|single_subj_multi_test">
-                    <div class="project-number">12</div>
-                    <div class="project-desc"> 📊 #أداة_تحليل نتائج الاختبارات المتعددة لمادة وحيدة|single_subj_multi_test</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/single_subj_multi_test/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/single_subj_multi_test/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/single_subj_multi_test/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="#السيرة_الذاتية_المطور">
-                    <div class="project-number">13</div>
-                    <div class="project-desc">#السيرة_الذاتية_المطور</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/resumepro/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/resumepro/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/resumepro/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="توزيع موضوعات المادة الدراسية يدويا
-#توزيع_المنهج">
-                    <div class="project-number">14</div>
-                    <div class="project-desc">توزيع موضوعات المادة الدراسية يدويا
-#توزيع_المنهج</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/topics_plan/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/topics_plan/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/topics_plan/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="نسخة المدارس. #توزيع_المنهج">
-                    <div class="project-number">15</div>
-                    <div class="project-desc">نسخة المدارس. #توزيع_المنهج</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/topics_plans/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/topics_plans/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/topics_plans/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="#نموذج_ورقة_عمل مصممة بمحرر الاسئلة التفاعلية المطور">
-                    <div class="project-number">16</div>
-                    <div class="project-desc">#نموذج_ورقة_عمل مصممة بمحرر الاسئلة التفاعلية المطور</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/example_worksheet/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/example_worksheet/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/example_worksheet/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="#دعم_الكتابة_ بالعربي في Affinity_Arabic_Text">
-                    <div class="project-number">17</div>
-                    <div class="project-desc">#دعم_الكتابة_ بالعربي في Affinity_Arabic_Text</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/affinity_arabic_text/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/affinity_arabic_text/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/affinity_arabic_text/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="لعبة مطابقة المصطلحات والتعريفات الرياضياتيةوالهندسية
-#لعبة_تعليمية">
-                    <div class="project-number">18</div>
-                    <div class="project-desc">لعبة مطابقة المصطلحات والتعريفات الرياضياتيةوالهندسية
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/geometry_vocabulary/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/geometry_vocabulary/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/geometry_vocabulary/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="محرر مساعد لـ #ملف_الانجاز المهني|Professional Portfolio Builder">
-                    <div class="project-number">19</div>
-                    <div class="project-desc">محرر مساعد لـ #ملف_الانجاز المهني|Professional Portfolio Builder</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/portfolio_editor/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/portfolio_editor/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/portfolio_editor/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="#نموذج_ملف_انجاز">
-                    <div class="project-number">20</div>
-                    <div class="project-desc">#نموذج_ملف_انجاز</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/enjaz/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/enjaz/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/enjaz/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="مراجعة جداول القسمة من جدول 1 حتى جدول 10
-#لعبة_تعليمية">
-                    <div class="project-number">21</div>
-                    <div class="project-desc">مراجعة جداول القسمة من جدول 1 حتى جدول 10
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/alqisma/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/alqisma/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/alqisma/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="مراجعة الحروف العربية من خلال اختيار الحرف الصحيح من أول احرف من اسم الصورة
-#لعبة_تعليمية">
-                    <div class="project-number">22</div>
-                    <div class="project-desc">مراجعة الحروف العربية من خلال اختيار الحرف الصحيح من أول احرف من اسم الصورة
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/huruf_arabia/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/huruf_arabia/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/huruf_arabia/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="مراجعة الحروف الانجليزية المجردة من خلال اول حرف من اسم الصورة
-#لعبة_تعليمية">
-                    <div class="project-number">23</div>
-                    <div class="project-desc">مراجعة الحروف الانجليزية المجردة من خلال اول حرف من اسم الصورة
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/En_Alphabet/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/En_Alphabet/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/En_Alphabet/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="مراجعة الجمع البسيط
-#لعبة_تعليمية">
-                    <div class="project-number">24</div>
-                    <div class="project-desc">مراجعة الجمع البسيط
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/aljame/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/aljame/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/aljame/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="مراجعة الطرح البسيط للصغار
-#لعبة_تعليمية">
-                    <div class="project-number">25</div>
-                    <div class="project-desc">مراجعة الطرح البسيط للصغار
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/altarh/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/altarh/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/altarh/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="العبارات الجبرية والمعادلات للصف الخامس
-#لعبة_تعليمية">
-                    <div class="project-number">26</div>
-                    <div class="project-desc">العبارات الجبرية والمعادلات للصف الخامس
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/Algebra/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/Algebra/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/Algebra/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="تدريب على الكسور المكافئة
-#لعبة_تعليمية">
-                    <div class="project-number">27</div>
-                    <div class="project-desc">تدريب على الكسور المكافئة
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/alkasr_almukafi/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/alkasr_almukafi/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/alkasr_almukafi/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="مراجعة القسمة مع التغذية الراجعة
-#لعبة_تعليمية">
-                    <div class="project-number">28</div>
-                    <div class="project-desc">مراجعة القسمة مع التغذية الراجعة
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/alqisma_rajiea/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/alqisma_rajiea/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/alqisma_rajiea/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="مراجعة الضرب مع التغذية الراجعة
-#لعبة_تعليمية">
-                    <div class="project-number">29</div>
-                    <div class="project-desc">مراجعة الضرب مع التغذية الراجعة
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/aldarb_rajiea/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/aldarb_rajiea/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/aldarb_rajiea/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="تعزيز تعلم الكسور المكافئة
-#لعبة_تعليمية">
-                    <div class="project-number">30</div>
-                    <div class="project-desc">تعزيز تعلم الكسور المكافئة
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/kusur_mukafia/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/kusur_mukafia/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/kusur_mukafia/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="مراجعة الأرقام للصغار
-#لعبة_تعليمية">
-                    <div class="project-number">31</div>
-                    <div class="project-desc">مراجعة الأرقام للصغار
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/alarqam/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/alarqam/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/alarqam/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="تحدي القسمة
-#لعبة_تعليمية">
-                    <div class="project-number">32</div>
-                    <div class="project-desc">تحدي القسمة
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/-tahadiy_alqisma/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/-tahadiy_alqisma/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/-tahadiy_alqisma/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="مسابقة جداول الضرب من جدول 1 حتى جدول 10
-#لعبة_تعليمية">
-                    <div class="project-number">33</div>
-                    <div class="project-desc">مسابقة جداول الضرب من جدول 1 حتى جدول 10
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/luebat_aldarb/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/luebat_aldarb/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/luebat_aldarb/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="لعبة لمراجعة  جداول القسمة 1-10
-#لعبة_تعليمية">
-                    <div class="project-number">34</div>
-                    <div class="project-desc">لعبة لمراجعة  جداول القسمة 1-10
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/luebat_alqisma/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/luebat_alqisma/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/luebat_alqisma/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="تحدي الضرب لمراجعة جداولها العشرة
-#لعبة_تعليمية">
-                    <div class="project-number">35</div>
-                    <div class="project-desc">تحدي الضرب لمراجعة جداولها العشرة
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/tahadiy_aldarb/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/tahadiy_aldarb/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/tahadiy_aldarb/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="تدريبات على مقارنة الأعداد
-#لعبة_تعليمية">
-                    <div class="project-number">36</div>
-                    <div class="project-desc">تدريبات على مقارنة الأعداد
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/muqaranat-alaadad/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/muqaranat-alaadad/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/muqaranat-alaadad/" loading="lazy"></iframe>
-                </div>
-            
-                <div class="project-card" data-desc="تدريب على الكسور المكافئة
-#لعبة_تعليمية">
-                    <div class="project-number">37</div>
-                    <div class="project-desc">تدريب على الكسور المكافئة
-#لعبة_تعليمية</div>
-                    <div class="actions">
-                        <a href="https://ensanbinadam.github.io/alkasr_almukafi_2/" target="_blank" class="btn btn-open">🌐 فتح الموقع</a>
-                        <button onclick="copyUrl(this, 'https://ensanbinadam.github.io/alkasr_almukafi_2/')" class="btn btn-copy">📋 نسخ الرابط</button>
-                    </div>
-                    <iframe src="https://ensanbinadam.github.io/alkasr_almukafi_2/" loading="lazy"></iframe>
-                </div>
-            
+        <div
+          class="project-card"
+          data-desc="مولّد #برومبت الخط العربي للأسماء والعبارات  واجهة عربية تفاعلية لتوليد برومبتات احترافية لتصميم مخطوطات عربية جميلة "
+        >
+          <div class="project-number">2</div>
+          <div class="project-desc">
+            مولّد #برومبت الخط العربي للأسماء والعبارات واجهة عربية تفاعلية
+            لتوليد برومبتات احترافية لتصميم مخطوطات عربية جميلة
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/arabic_calligraphy_promptg_generator/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(
+                  this,
+                  'https://ensanbinadam.github.io/arabic_calligraphy_promptg_generator/',
+                )
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/arabic_calligraphy_promptg_generator/"
+            loading="lazy"
+          ></iframe>
         </div>
+
+        <div
+          class="project-card"
+          data-desc="مشاريع الأستاذ المتقاعد/عبدالعزيز العبدالجبار #مشاريعي_الخاصة"
+        >
+          <div class="project-number">3</div>
+          <div class="project-desc">
+            مشاريع الأستاذ المتقاعد/عبدالعزيز العبدالجبار #مشاريعي_الخاصة
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/myweb/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="copyUrl(this, 'https://ensanbinadam.github.io/myweb/')"
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/myweb/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="أداة ويب عربية لتوليد #برومبت تهنئة فاخرة لمولدات الصور، مع دعم العبارات الرئيسية، التذييل، الاسم، والدولة المختارة، مع هوية بصرية مناسبة تلقائيًا."
+        >
+          <div class="project-number">4</div>
+          <div class="project-desc">
+            أداة ويب عربية لتوليد #برومبت تهنئة فاخرة لمولدات الصور، مع دعم
+            العبارات الرئيسية، التذييل، الاسم، والدولة المختارة، مع هوية بصرية
+            مناسبة تلقائيًا.
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/arabic_prompt_gen/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(
+                  this,
+                  'https://ensanbinadam.github.io/arabic_prompt_gen/',
+                )
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/arabic_prompt_gen/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="اكتب العبارة الرئيسية والاسم، ثم اختر الخامة والتأثير والزهرة والخلفية، وسيولّد لك الموقع #برومبت عربيًا جاهزًا مع negative prompt منفصل لنسخه مباشرة إلى نانو بانانا أو أي مولد صور يدعم العربية جيدًا."
+        >
+          <div class="project-number">5</div>
+          <div class="project-desc">
+            اكتب العبارة الرئيسية والاسم، ثم اختر الخامة والتأثير والزهرة
+            والخلفية، وسيولّد لك الموقع #برومبت عربيًا جاهزًا مع negative prompt
+            منفصل لنسخه مباشرة إلى نانو بانانا أو أي مولد صور يدعم العربية
+            جيدًا.
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/arabic_calligraphy_prompt_generator/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(
+                  this,
+                  'https://ensanbinadam.github.io/arabic_calligraphy_prompt_generator/',
+                )
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/arabic_calligraphy_prompt_generator/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div class="project-card" data-desc="مولد #برومبت بطاقة معايدة">
+          <div class="project-number">6</div>
+          <div class="project-desc">مولد #برومبت بطاقة معايدة</div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/eid_prompt_generator/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(
+                  this,
+                  'https://ensanbinadam.github.io/eid_prompt_generator/',
+                )
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/eid_prompt_generator/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div class="project-card" data-desc="#تحويل_النص_إلى_صوت">
+          <div class="project-number">7</div>
+          <div class="project-desc">#تحويل_النص_إلى_صوت</div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/arabi/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="copyUrl(this, 'https://ensanbinadam.github.io/arabi/')"
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/arabi/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="#محرر_الاسئلة_التفاعلية  المطور
+مكتباته خارجية."
+        >
+          <div class="project-number">8</div>
+          <div class="project-desc">
+            #محرر_الاسئلة_التفاعلية المطور مكتباته خارجية.
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/quiz_editor_pro/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/quiz_editor_pro/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/quiz_editor_pro/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="#محرر_اسئلة_وأورق_عمل_تفاعلية
+مكتبات مضمنة."
+        >
+          <div class="project-number">9</div>
+          <div class="project-desc">
+            #محرر_اسئلة_وأورق_عمل_تفاعلية مكتبات مضمنة.
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/quiz_editor_pro_offline/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(
+                  this,
+                  'https://ensanbinadam.github.io/quiz_editor_pro_offline/',
+                )
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/quiz_editor_pro_offline/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="كود لـ #عرض_مستوعاتك_في_قيت_هوب ثم تصديريها لموقع رسمي"
+        >
+          <div class="project-number">10</div>
+          <div class="project-desc">
+            كود لـ #عرض_مستوعاتك_في_قيت_هوب ثم تصديريها لموقع رسمي
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/myweb_editor/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/myweb_editor/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/myweb_editor/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="#أداة_تحليل مبادرة ارتقاء ـ مجانية "
+        >
+          <div class="project-number">11</div>
+          <div class="project-desc">#أداة_تحليل مبادرة ارتقاء ـ مجانية</div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/analysis_irtiqa/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/analysis_irtiqa/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/analysis_irtiqa/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="#أداة_تحليل البيانات التعليمية من ملفات اكسل مصدرة من نور"
+        >
+          <div class="project-number">12</div>
+          <div class="project-desc">
+            #أداة_تحليل البيانات التعليمية من ملفات اكسل مصدرة من نور
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/analysis_tool/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/analysis_tool/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/analysis_tool/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="#أداة_تحليل النتائج الوصفي لمادة وحيدة"
+        >
+          <div class="project-number">13</div>
+          <div class="project-desc">#أداة_تحليل النتائج الوصفي لمادة وحيدة</div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/analysis_one/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/analysis_one/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/analysis_one/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc=" 📊 #أداة_تحليل نتائج الاختبارات المتعددة لمادة وحيدة|single_subj_multi_test"
+        >
+          <div class="project-number">14</div>
+          <div class="project-desc">
+            📊 #أداة_تحليل نتائج الاختبارات المتعددة لمادة
+            وحيدة|single_subj_multi_test
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/single_subj_multi_test/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(
+                  this,
+                  'https://ensanbinadam.github.io/single_subj_multi_test/',
+                )
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/single_subj_multi_test/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div class="project-card" data-desc="#السيرة_الذاتية_المطور">
+          <div class="project-number">15</div>
+          <div class="project-desc">#السيرة_الذاتية_المطور</div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/resumepro/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/resumepro/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/resumepro/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="توزيع موضوعات المادة الدراسية يدويا
+#توزيع_المنهج"
+        >
+          <div class="project-number">16</div>
+          <div class="project-desc">
+            توزيع موضوعات المادة الدراسية يدويا #توزيع_المنهج
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/topics_plan/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/topics_plan/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/topics_plan/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div class="project-card" data-desc="نسخة المدارس. #توزيع_المنهج">
+          <div class="project-number">17</div>
+          <div class="project-desc">نسخة المدارس. #توزيع_المنهج</div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/topics_plans/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/topics_plans/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/topics_plans/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="#نموذج_ورقة_عمل مصممة بمحرر الاسئلة التفاعلية المطور"
+        >
+          <div class="project-number">18</div>
+          <div class="project-desc">
+            #نموذج_ورقة_عمل مصممة بمحرر الاسئلة التفاعلية المطور
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/example_worksheet/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(
+                  this,
+                  'https://ensanbinadam.github.io/example_worksheet/',
+                )
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/example_worksheet/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="#دعم_الكتابة_ بالعربي في Affinity_Arabic_Text"
+        >
+          <div class="project-number">19</div>
+          <div class="project-desc">
+            #دعم_الكتابة_ بالعربي في Affinity_Arabic_Text
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/affinity_arabic_text/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(
+                  this,
+                  'https://ensanbinadam.github.io/affinity_arabic_text/',
+                )
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/affinity_arabic_text/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="لعبة مطابقة المصطلحات والتعريفات الرياضياتيةوالهندسية
+#لعبة_تعليمية"
+        >
+          <div class="project-number">20</div>
+          <div class="project-desc">
+            لعبة مطابقة المصطلحات والتعريفات الرياضياتيةوالهندسية #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/geometry_vocabulary/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(
+                  this,
+                  'https://ensanbinadam.github.io/geometry_vocabulary/',
+                )
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/geometry_vocabulary/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="محرر مساعد لـ #ملف_الانجاز المهني|Professional Portfolio Builder"
+        >
+          <div class="project-number">21</div>
+          <div class="project-desc">
+            محرر مساعد لـ #ملف_الانجاز المهني|Professional Portfolio Builder
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/portfolio_editor/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(
+                  this,
+                  'https://ensanbinadam.github.io/portfolio_editor/',
+                )
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/portfolio_editor/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div class="project-card" data-desc="#نموذج_ملف_انجاز">
+          <div class="project-number">22</div>
+          <div class="project-desc">#نموذج_ملف_انجاز</div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/enjaz/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="copyUrl(this, 'https://ensanbinadam.github.io/enjaz/')"
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/enjaz/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="مراجعة جداول القسمة من جدول 1 حتى جدول 10
+#لعبة_تعليمية"
+        >
+          <div class="project-number">23</div>
+          <div class="project-desc">
+            مراجعة جداول القسمة من جدول 1 حتى جدول 10 #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/alqisma/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="copyUrl(this, 'https://ensanbinadam.github.io/alqisma/')"
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/alqisma/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="مراجعة الحروف العربية من خلال اختيار الحرف الصحيح من أول احرف من اسم الصورة
+#لعبة_تعليمية"
+        >
+          <div class="project-number">24</div>
+          <div class="project-desc">
+            مراجعة الحروف العربية من خلال اختيار الحرف الصحيح من أول احرف من اسم
+            الصورة #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/huruf_arabia/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/huruf_arabia/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/huruf_arabia/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="مراجعة الحروف الانجليزية المجردة من خلال اول حرف من اسم الصورة
+#لعبة_تعليمية"
+        >
+          <div class="project-number">25</div>
+          <div class="project-desc">
+            مراجعة الحروف الانجليزية المجردة من خلال اول حرف من اسم الصورة
+            #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/En_Alphabet/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/En_Alphabet/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/En_Alphabet/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="مراجعة الجمع البسيط
+#لعبة_تعليمية"
+        >
+          <div class="project-number">26</div>
+          <div class="project-desc">مراجعة الجمع البسيط #لعبة_تعليمية</div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/aljame/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="copyUrl(this, 'https://ensanbinadam.github.io/aljame/')"
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/aljame/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="مراجعة الطرح البسيط للصغار
+#لعبة_تعليمية"
+        >
+          <div class="project-number">27</div>
+          <div class="project-desc">
+            مراجعة الطرح البسيط للصغار #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/altarh/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="copyUrl(this, 'https://ensanbinadam.github.io/altarh/')"
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/altarh/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="العبارات الجبرية والمعادلات للصف الخامس
+#لعبة_تعليمية"
+        >
+          <div class="project-number">28</div>
+          <div class="project-desc">
+            العبارات الجبرية والمعادلات للصف الخامس #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/Algebra/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="copyUrl(this, 'https://ensanbinadam.github.io/Algebra/')"
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/Algebra/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="تدريب على الكسور المكافئة
+#لعبة_تعليمية"
+        >
+          <div class="project-number">29</div>
+          <div class="project-desc">
+            تدريب على الكسور المكافئة #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/alkasr_almukafi/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/alkasr_almukafi/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/alkasr_almukafi/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="مراجعة القسمة مع التغذية الراجعة
+#لعبة_تعليمية"
+        >
+          <div class="project-number">30</div>
+          <div class="project-desc">
+            مراجعة القسمة مع التغذية الراجعة #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/alqisma_rajiea/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/alqisma_rajiea/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/alqisma_rajiea/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="مراجعة الضرب مع التغذية الراجعة
+#لعبة_تعليمية"
+        >
+          <div class="project-number">31</div>
+          <div class="project-desc">
+            مراجعة الضرب مع التغذية الراجعة #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/aldarb_rajiea/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/aldarb_rajiea/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/aldarb_rajiea/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="تعزيز تعلم الكسور المكافئة
+#لعبة_تعليمية"
+        >
+          <div class="project-number">32</div>
+          <div class="project-desc">
+            تعزيز تعلم الكسور المكافئة #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/kusur_mukafia/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/kusur_mukafia/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/kusur_mukafia/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="مراجعة الأرقام للصغار
+#لعبة_تعليمية"
+        >
+          <div class="project-number">33</div>
+          <div class="project-desc">مراجعة الأرقام للصغار #لعبة_تعليمية</div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/alarqam/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="copyUrl(this, 'https://ensanbinadam.github.io/alarqam/')"
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/alarqam/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="تحدي القسمة
+#لعبة_تعليمية"
+        >
+          <div class="project-number">34</div>
+          <div class="project-desc">تحدي القسمة #لعبة_تعليمية</div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/-tahadiy_alqisma/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(
+                  this,
+                  'https://ensanbinadam.github.io/-tahadiy_alqisma/',
+                )
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/-tahadiy_alqisma/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="مسابقة جداول الضرب من جدول 1 حتى جدول 10
+#لعبة_تعليمية"
+        >
+          <div class="project-number">35</div>
+          <div class="project-desc">
+            مسابقة جداول الضرب من جدول 1 حتى جدول 10 #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/luebat_aldarb/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/luebat_aldarb/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/luebat_aldarb/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="لعبة لمراجعة  جداول القسمة 1-10
+#لعبة_تعليمية"
+        >
+          <div class="project-number">36</div>
+          <div class="project-desc">
+            لعبة لمراجعة جداول القسمة 1-10 #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/luebat_alqisma/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/luebat_alqisma/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/luebat_alqisma/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="تحدي الضرب لمراجعة جداولها العشرة
+#لعبة_تعليمية"
+        >
+          <div class="project-number">37</div>
+          <div class="project-desc">
+            تحدي الضرب لمراجعة جداولها العشرة #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/tahadiy_aldarb/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(this, 'https://ensanbinadam.github.io/tahadiy_aldarb/')
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/tahadiy_aldarb/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="تدريبات على مقارنة الأعداد
+#لعبة_تعليمية"
+        >
+          <div class="project-number">38</div>
+          <div class="project-desc">
+            تدريبات على مقارنة الأعداد #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/muqaranat-alaadad/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(
+                  this,
+                  'https://ensanbinadam.github.io/muqaranat-alaadad/',
+                )
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/muqaranat-alaadad/"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div
+          class="project-card"
+          data-desc="تدريب على الكسور المكافئة
+#لعبة_تعليمية"
+        >
+          <div class="project-number">39</div>
+          <div class="project-desc">
+            تدريب على الكسور المكافئة #لعبة_تعليمية
+          </div>
+          <div class="actions">
+            <a
+              href="https://ensanbinadam.github.io/alkasr_almukafi_2/"
+              target="_blank"
+              class="btn btn-open"
+              >🌐 فتح الموقع</a
+            >
+            <button
+              onclick="
+                copyUrl(
+                  this,
+                  'https://ensanbinadam.github.io/alkasr_almukafi_2/',
+                )
+              "
+              class="btn btn-copy"
+            >
+              📋 نسخ الرابط
+            </button>
+          </div>
+          <iframe
+            src="https://ensanbinadam.github.io/alkasr_almukafi_2/"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
     </div>
 
     <footer>
-        <div style="font-size: 1.2em; font-weight: bold; margin-bottom: 5px;">مشاريع المعلم المتقاعد/عبدالعزيز العبدالجبار</div>
-        <div style="font-size: 0.9em; opacity: 0.7;">جميع الحقوق محفوظة ©</div>
+      <div style="font-size: 1.2em; font-weight: bold; margin-bottom: 5px">
+        المعلم المتقاعد/عبدالعزيز العبدالجبار
+      </div>
+      <div style="font-size: 0.9em; opacity: 0.7">جميع الحقوق محفوظة ©</div>
+      <a
+        href="https://t.me/Insan_Notebook"
+        target="_blank"
+        style="text-decoration: none; color: inherit"
+      >
+        Insan_Notebook|كشكول_إنسان
+      </a>
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const cards = document.querySelectorAll(".project-card");
-            const tagCounts = {};
-            const totalProjects = cards.length;
-            
-            cards.forEach(card => {
-                const text = card.getAttribute("data-desc");
-                const matches = text.match(/#[\w\u0600-\u06FF_]+/g);
-                if (matches) {
-                    const uniqueTags = new Set(matches);
-                    uniqueTags.forEach(tag => {
-                        tagCounts[tag] = (tagCounts[tag] || 0) + 1;
-                    });
-                }
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".project-card");
+        const tagCounts = {};
+        const totalProjects = cards.length;
+
+        cards.forEach((card) => {
+          const text = card.getAttribute("data-desc");
+          const matches = text.match(/#[\w\u0600-\u06FF_]+/g);
+          if (matches) {
+            const uniqueTags = new Set(matches);
+            uniqueTags.forEach((tag) => {
+              tagCounts[tag] = (tagCounts[tag] || 0) + 1;
             });
-
-            if (Object.keys(tagCounts).length > 0) {
-                document.getElementById("categoryNav").style.display = "block";
-                const tagsContainer = document.getElementById("exportTags");
-                
-                const allBtn = document.createElement("button");
-                allBtn.className = "tag-btn active";
-                allBtn.innerHTML = 'الكل <span class="tag-count">' + totalProjects + '</span>';
-                allBtn.onclick = function() { filterProjects(null, this); };
-                tagsContainer.appendChild(allBtn);
-
-                Object.keys(tagCounts).forEach(tag => {
-                    const count = tagCounts[tag];
-                    const btn = document.createElement("button");
-                    btn.className = "tag-btn";
-                    btn.innerHTML = tag + ' <span class="tag-count">' + count + '</span>';
-                    btn.onclick = function() { filterProjects(tag, this); };
-                    tagsContainer.appendChild(btn);
-                });
-            }
+          }
         });
 
-        function filterProjects(tag, btnElement) {
-            document.querySelectorAll(".tag-btn").forEach(b => b.classList.remove("active"));
-            btnElement.classList.add("active");
+        if (Object.keys(tagCounts).length > 0) {
+          document.getElementById("categoryNav").style.display = "block";
+          const tagsContainer = document.getElementById("exportTags");
 
-            let visibleCount = 1;
-            document.querySelectorAll(".project-card").forEach(card => {
-                const text = card.getAttribute("data-desc");
-                if (!tag || text.includes(tag)) {
-                    card.style.display = "block";
-                    card.querySelector('.project-number').innerText = visibleCount++; 
-                } else {
-                    card.style.display = "none";
-                }
-            });
-        }
+          const allBtn = document.createElement("button");
+          allBtn.className = "tag-btn active";
+          allBtn.innerHTML =
+            'الكل <span class="tag-count">' + totalProjects + "</span>";
+          allBtn.onclick = function () {
+            filterProjects(null, this);
+          };
+          tagsContainer.appendChild(allBtn);
 
-        function copyUrl(btn, url) {
-            navigator.clipboard.writeText(url).then(() => {
-                const originalText = btn.innerHTML;
-                const originalBg = btn.style.backgroundColor;
-                btn.innerHTML = '✅ تم النسخ';
-                btn.style.backgroundColor = '#10b981';
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.backgroundColor = originalBg;
-                }, 2000);
-            });
+          Object.keys(tagCounts).forEach((tag) => {
+            const count = tagCounts[tag];
+            const btn = document.createElement("button");
+            btn.className = "tag-btn";
+            btn.innerHTML =
+              tag + ' <span class="tag-count">' + count + "</span>";
+            btn.onclick = function () {
+              filterProjects(tag, this);
+            };
+            tagsContainer.appendChild(btn);
+          });
         }
+      });
+
+      function filterProjects(tag, btnElement) {
+        document
+          .querySelectorAll(".tag-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btnElement.classList.add("active");
+
+        let visibleCount = 1;
+        document.querySelectorAll(".project-card").forEach((card) => {
+          const text = card.getAttribute("data-desc");
+          if (!tag || text.includes(tag)) {
+            card.style.display = "block";
+            card.querySelector(".project-number").innerText = visibleCount++;
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+
+      function copyUrl(btn, url) {
+        navigator.clipboard.writeText(url).then(() => {
+          const originalText = btn.innerHTML;
+          const originalBg = btn.style.backgroundColor;
+          btn.innerHTML = "✅ تم النسخ";
+          btn.style.backgroundColor = "#10b981";
+          setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.backgroundColor = originalBg;
+          }, 2000);
+        });
+      }
     </script>
-</body>
+  </body>
 </html>
